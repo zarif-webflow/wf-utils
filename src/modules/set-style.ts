@@ -20,7 +20,7 @@ export const setStyle = <TElement extends HTMLElement = HTMLElement>(
 
   for (const key of Object.keys(styles)) {
     // @ts-expect-error guarnateed to be a valid CSS property key
-    prevValues[key] = element.style.getPropertyValue(key);
+    prevValues[key] = element.style[key];
     // @ts-expect-error guarnateed to be a valid CSS property key
     element.style[key] = styles[key] || "";
   }

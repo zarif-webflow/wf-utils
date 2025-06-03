@@ -1,0 +1,1 @@
+var o=(t,s)=>{let r={};for(let e of Object.keys(s))r[e]=t.style[e],t.style[e]=s[e]||"";return {revert:()=>{Object.assign(t.style,r);}}};export{o as setStyle};
