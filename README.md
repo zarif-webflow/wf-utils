@@ -13,7 +13,7 @@ pnpm install @taj-wf/utils
 You can import the utilities you need directly.
 
 ```typescript
-import { afterWebflowReady, setStyle } from "@taj-wf/utils";
+import { afterWebflowReady, getHtmlElement, setStyle } from "@taj-wf/utils";
 
 // Example: Execute a function after Webflow has initialized
 afterWebflowReady(() => {
@@ -21,10 +21,10 @@ afterWebflowReady(() => {
 });
 
 // Example: Set style on an element
-const myElement = document.getElementById("my-element");
-if (myElement) {
-  const { revert } = setStyle(myElement, {
-    opacity: "0.5",
+const targetButton = getHtmlElement<HTMLButtonElement>({ selector: "[data-target-button]" });
+if (targetButton) {
+  const { revert } = setStyle(targetButton, {
+    color: "white",
     backgroundColor: "blue",
   });
 
