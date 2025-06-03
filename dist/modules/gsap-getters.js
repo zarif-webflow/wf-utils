@@ -1,0 +1,1 @@
+var r=(t=[])=>{let l=null;try{l=gsap;}catch{}let o=[l];for(let e=0;e<t.length;e++){let p=t[e],n=null;try{n=window[p]||null;}catch{}o[e+1]=n;}return o};export{r as getGsap};
