@@ -1,8 +1,8 @@
 {
   "name": "@taj-wf/utils",
-  "description": "Some useful TypeScript utilities I regularly use when working with Webflow.",
+  "description": "Some useful TypeScript utilities that can be used when working with Webflow.",
   "version": "1.0.0",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [],
   "type": "module",
   "main": "dist/index.js",
