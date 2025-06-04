@@ -1,4 +1,4 @@
-import { GSAPPluginNames, GSAPType, GSAPPluginTypeMap } from '../types/gsap.d.js';
+import { GSAPPluginNames, GSAPType, GSAPPluginTypeMap } from '../types/gsap.js';
 import 'gsap';
 import 'gsap/Draggable';
 import 'gsap/DrawSVGPlugin';

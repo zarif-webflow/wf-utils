@@ -19,50 +19,28 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { TextPlugin } from 'gsap/TextPlugin';
 
-type GSAPPluginNames =
-  | "Draggable"
-  | "DrawSVG"
-  | "Easel"
-  | "Flip"
-  | "GSDevTools"
-  | "Inertia"
-  | "MotionPathHelper"
-  | "MotionPath"
-  | "MorphSVG"
-  | "Observer"
-  | "Physics2D"
-  | "PhysicsProps"
-  | "Pixi"
-  | "ScrambleText"
-  | "ScrollTrigger"
-  | "ScrollSmoother"
-  | "ScrollTo"
-  | "SplitText"
-  | "Text";
-
+type GSAPPluginNames = "Draggable" | "DrawSVG" | "Easel" | "Flip" | "GSDevTools" | "Inertia" | "MotionPathHelper" | "MotionPath" | "MorphSVG" | "Observer" | "Physics2D" | "PhysicsProps" | "Pixi" | "ScrambleText" | "ScrollTrigger" | "ScrollSmoother" | "ScrollTo" | "SplitText" | "Text";
 type GSAPType = typeof gsap;
-
-// Define mappings between plugin names and their types
 type GSAPPluginTypeMap = {
-  Draggable: typeof Draggable;
-  DrawSVG: typeof DrawSVGPlugin;
-  Easel: typeof EaselPlugin;
-  Flip: typeof Flip;
-  GSDevTools: typeof GSDevTools;
-  Inertia: typeof InertiaPlugin;
-  MotionPathHelper: typeof MotionPathHelper;
-  MotionPath: typeof MotionPathPlugin;
-  MorphSVG: typeof MorphSVGPlugin;
-  Observer: typeof Observer;
-  Physics2D: typeof Physics2DPlugin;
-  PhysicsProps: typeof PhysicsPropsPlugin;
-  Pixi: typeof PixiPlugin;
-  ScrambleText: typeof ScrambleTextPlugin;
-  ScrollTrigger: typeof ScrollTrigger;
-  ScrollSmoother: typeof ScrollSmoother;
-  ScrollTo: typeof ScrollToPlugin;
-  SplitText: typeof SplitText;
-  Text: typeof TextPlugin;
+    Draggable: typeof Draggable;
+    DrawSVG: typeof DrawSVGPlugin;
+    Easel: typeof EaselPlugin;
+    Flip: typeof Flip;
+    GSDevTools: typeof GSDevTools;
+    Inertia: typeof InertiaPlugin;
+    MotionPathHelper: typeof MotionPathHelper;
+    MotionPath: typeof MotionPathPlugin;
+    MorphSVG: typeof MorphSVGPlugin;
+    Observer: typeof Observer;
+    Physics2D: typeof Physics2DPlugin;
+    PhysicsProps: typeof PhysicsPropsPlugin;
+    Pixi: typeof PixiPlugin;
+    ScrambleText: typeof ScrambleTextPlugin;
+    ScrollTrigger: typeof ScrollTrigger;
+    ScrollSmoother: typeof ScrollSmoother;
+    ScrollTo: typeof ScrollToPlugin;
+    SplitText: typeof SplitText;
+    Text: typeof TextPlugin;
 };
 
 export type { GSAPPluginNames, GSAPPluginTypeMap, GSAPType };

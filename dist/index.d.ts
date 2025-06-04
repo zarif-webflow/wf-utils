@@ -3,7 +3,7 @@ export { getActiveScript } from './modules/get-active-script.js';
 export { getGsap } from './modules/get-gsap.js';
 export { getHtmlElement, getMultipleHtmlElements } from './modules/get-html-element.js';
 export { setStyle } from './modules/set-style.js';
-import './types/gsap.d.js';
+import './types/gsap.js';
 import 'gsap';
 import 'gsap/Draggable';
 import 'gsap/DrawSVGPlugin';
