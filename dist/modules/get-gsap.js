@@ -1,4 +1,4 @@
-var u=(t=[],s)=>{let l=null,o=s==="debug"?console.debug:s==="error"?console.error:null;try{l=gsap;}catch{o?.("GSAP script needs to be imported before this script.",`
-`,"Get GSAP from here: https://gsap.com/docs/v3/Installation/ ");}let p=[l];for(let e=0;e<t.length;e++){let n=t[e],r=null;try{r=window[n]||null;}catch{o?.(`${n} plugin script needs to be imported before this script.`,`
-`,`Get ${n} plugin from here: https://gsap.com/docs/v3/Installation/ `);}p[e+1]=r;}return p};
-export{u as getGsap};
+var p=({selector:e,parent:t,log:n="debug"})=>{let l=(t||document).querySelector(e);return l===null?(n===false||(n==="debug"?console.debug:console.error)(`${n.toUpperCase()}: Element with selector "${e}" not found in ${t!==void 0?"the specified parent element:":"the document."}`,t),null):l};var u=()=>{let e=import.meta.url;return p({selector:`script[src="${e}"]`})};var g=(e=[],t)=>{let n=null,l=t==="debug"?console.debug:t==="error"?console.error:null;try{n=gsap;}catch{l?.("GSAP script needs to be imported before this script:",u(),`
+`,"Get GSAP from here: https://gsap.com/docs/v3/Installation/ ");}let o=[n];for(let r=0;r<e.length;r++){let s=e[r],c=null;try{c=window[s]||null;}catch{l?.(`${s} plugin script needs to be imported before this script.`,u(),`
+`,`Get ${s} plugin from here: https://gsap.com/docs/v3/Installation/ `);}o[r+1]=c;}return o};
+export{g as getGsap};

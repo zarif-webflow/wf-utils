@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import type { GSAPPluginNames, GSAPPluginTypeMap, GSAPType } from "@/types/gsap";
+
+import { getActiveScript } from "./get-active-script";
 // A helper type to create a tuple type from an array of plugin names
 type GSAPReturnTuple<T extends GSAPPluginNames[]> = [
   GSAPType | null,
@@ -66,7 +68,8 @@ export const getGsap = <T extends GSAPPluginNames[]>(
     gsapInstance = gsap;
   } catch {
     logFunc?.(
-      "GSAP script needs to be imported before this script.",
+      "GSAP script needs to be imported before this script:",
+      getActiveScript(),
       "\n",
       "Get GSAP from here: https://gsap.com/docs/v3/Installation/ "
     );
@@ -84,6 +87,7 @@ export const getGsap = <T extends GSAPPluginNames[]>(
     } catch {
       logFunc?.(
         `${plugin} plugin script needs to be imported before this script.`,
+        getActiveScript(),
         "\n",
         `Get ${plugin} plugin from here: https://gsap.com/docs/v3/Installation/ `
       );
