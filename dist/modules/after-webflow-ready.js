@@ -1,1 +1,0 @@
-var o=n=>{window.Webflow||=[],window.Webflow.push(n);};export{o as afterWebflowReady};
