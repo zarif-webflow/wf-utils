@@ -68,6 +68,9 @@ var getGsap = (plugins = [], log) => {
     let pluginInstance = null;
     try {
       pluginInstance = window[plugin] || null;
+      if (pluginInstance === null) {
+        throw new Error();
+      }
     } catch {
       logFunc?.(
         `${plugin} plugin script needs to be imported before this script.`,

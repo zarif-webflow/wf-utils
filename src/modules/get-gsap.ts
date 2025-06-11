@@ -80,10 +80,15 @@ export const getGsap = <T extends GSAPPluginNames[]>(
   for (let i = 0; i < plugins.length; i++) {
     const plugin = plugins[i];
     let pluginInstance = null;
+
     try {
       // Try to access the plugin from the global namespace
       // @ts-expect-error global window access
       pluginInstance = window[plugin] || null;
+
+      if (pluginInstance === null) {
+        throw new Error();
+      }
     } catch {
       logFunc?.(
         `${plugin} plugin script needs to be imported before this script.`,
