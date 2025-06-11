@@ -1,4 +1,5 @@
 import { GSAPPluginNames, GSAPType, GSAPPluginTypeMap } from './types/gsap.js';
+export { GSAPTweenVars } from './types/gsap.js';
 import { Properties } from 'csstype';
 import 'gsap';
 import 'gsap/Draggable';
@@ -188,4 +189,4 @@ declare const setStyle: <TElement extends HTMLElement = HTMLElement>(element: TE
     revert: () => void;
 };
 
-export { afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, setStyle };
+export { GSAPPluginNames, GSAPPluginTypeMap, GSAPType, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, setStyle };

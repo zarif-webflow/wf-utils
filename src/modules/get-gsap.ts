@@ -103,3 +103,5 @@ export const getGsap = <T extends GSAPPluginNames[]>(
 
   return result;
 };
+
+export type { GSAPPluginNames, GSAPPluginTypeMap, GSAPTweenVars, GSAPType } from "@/types/gsap";

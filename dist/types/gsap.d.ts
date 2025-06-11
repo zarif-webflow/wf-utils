@@ -42,5 +42,6 @@ type GSAPPluginTypeMap = {
     SplitText: typeof SplitText;
     Text: typeof TextPlugin;
 };
+type GSAPTweenVars = Parameters<(typeof gsap)["from"]>["2"];
 
-export type { GSAPPluginNames, GSAPPluginTypeMap, GSAPType };
+export type { GSAPPluginNames, GSAPPluginTypeMap, GSAPTweenVars, GSAPType };
