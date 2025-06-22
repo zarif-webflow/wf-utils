@@ -189,4 +189,26 @@ declare const setStyle: <TElement extends HTMLElement = HTMLElement>(element: TE
     revert: () => void;
 };
 
-export { GSAPPluginNames, GSAPPluginTypeMap, GSAPType, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, setStyle };
+type WFCustomPageLoadFeature = {
+    name: string;
+} & ({
+    async: false;
+    init: () => void;
+    destroy: () => void;
+    reInit: () => void;
+} | {
+    async: true;
+    init: () => Promise<void>;
+    destroy: () => Promise<void>;
+    reInit: () => Promise<void>;
+});
+declare global {
+    interface Window {
+        wfCustomPageLoadFeatures: Array<WFCustomPageLoadFeature>;
+    }
+}
+declare const addWFCustomPageLoadFeature: (feature: WFCustomPageLoadFeature) => void;
+declare const getWFCustomPageLoadFeatures: () => WFCustomPageLoadFeature[];
+declare const getWFCustomPageLoadFeatureByName: (name: string) => WFCustomPageLoadFeature | null;
+
+export { GSAPPluginNames, GSAPPluginTypeMap, GSAPType, type WFCustomPageLoadFeature, addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatureByName, getWFCustomPageLoadFeatures, setStyle };

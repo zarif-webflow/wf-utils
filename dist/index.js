@@ -98,4 +98,13 @@ var setStyle = (element, styles) => {
   };
 };
 
-export { afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, setStyle };
+// src/modules/wf-custom-page-load-features.ts
+window.wfCustomPageLoadFeatures ||= [];
+var addWFCustomPageLoadFeature = (feature) => {
+  window.wfCustomPageLoadFeatures ||= [];
+  window.wfCustomPageLoadFeatures.push(feature);
+};
+var getWFCustomPageLoadFeatures = () => window.wfCustomPageLoadFeatures;
+var getWFCustomPageLoadFeatureByName = (name) => window.wfCustomPageLoadFeatures.find((feature) => feature.name === name) || null;
+
+export { addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatureByName, getWFCustomPageLoadFeatures, setStyle };
