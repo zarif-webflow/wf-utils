@@ -49,7 +49,7 @@ var getActiveScript = (importMetaUrl) => {
 };
 
 // src/modules/get-gsap.ts
-var getGsap = (plugins = [], log) => {
+var getGsap = (plugins = [], log = "error") => {
   let gsapInstance = null;
   const logFunc = log === "debug" ? console.debug : log === "error" ? console.error : null;
   try {

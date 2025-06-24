@@ -58,7 +58,7 @@ type GSAPReturnTuple<T extends GSAPPluginNames[]> = [
  */
 export const getGsap = <T extends GSAPPluginNames[]>(
   plugins: [...T] = [] as unknown as [...T],
-  log?: "debug" | "error"
+  log: "debug" | "error" = "error"
 ): GSAPReturnTuple<T> => {
   let gsapInstance: GSAPType | null = null;
   const logFunc = log === "debug" ? console.debug : log === "error" ? console.error : null;
