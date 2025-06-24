@@ -41,8 +41,8 @@ var getMultipleHtmlElements = ({
 };
 
 // src/modules/get-active-script.ts
-var getActiveScript = () => {
-  const currentModuleUrl = import.meta.url;
+var getActiveScript = (importMetaUrl) => {
+  const currentModuleUrl = importMetaUrl;
   return getHtmlElement({
     selector: `script[src="${currentModuleUrl}"]`
   });
@@ -56,8 +56,7 @@ var getGsap = (plugins = [], log) => {
     gsapInstance = gsap;
   } catch {
     logFunc?.(
-      "GSAP script needs to be imported before this script:",
-      getActiveScript(),
+      "GSAP script needs to be imported before this script.",
       "\n",
       "Get GSAP from here: https://gsap.com/docs/v3/Installation/ "
     );
@@ -68,15 +67,14 @@ var getGsap = (plugins = [], log) => {
     let pluginInstance = null;
     try {
       pluginInstance = window[plugin] || null;
-      if (pluginInstance === null) {
+      if (!pluginInstance) {
         throw new Error();
       }
     } catch {
       logFunc?.(
-        `${plugin} plugin script needs to be imported before this script.`,
-        getActiveScript(),
+        `GSAP ${plugin} plugin script needs to be imported before this script.`,
         "\n",
-        `Get ${plugin} plugin from here: https://gsap.com/docs/v3/Installation/ `
+        `Get the ${plugin} plugin from here: https://gsap.com/docs/v3/Installation/ `
       );
     }
     result[i + 1] = pluginInstance;

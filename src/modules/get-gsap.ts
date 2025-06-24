@@ -2,7 +2,6 @@
 
 import type { GSAPPluginNames, GSAPPluginTypeMap, GSAPType } from "@/types/gsap";
 
-import { getActiveScript } from "./get-active-script";
 // A helper type to create a tuple type from an array of plugin names
 type GSAPReturnTuple<T extends GSAPPluginNames[]> = [
   GSAPType | null,
@@ -68,8 +67,7 @@ export const getGsap = <T extends GSAPPluginNames[]>(
     gsapInstance = gsap;
   } catch {
     logFunc?.(
-      "GSAP script needs to be imported before this script:",
-      getActiveScript(),
+      "GSAP script needs to be imported before this script.",
       "\n",
       "Get GSAP from here: https://gsap.com/docs/v3/Installation/ "
     );
@@ -86,15 +84,14 @@ export const getGsap = <T extends GSAPPluginNames[]>(
       // @ts-expect-error global window access
       pluginInstance = window[plugin] || null;
 
-      if (pluginInstance === null) {
+      if (!pluginInstance) {
         throw new Error();
       }
     } catch {
       logFunc?.(
-        `${plugin} plugin script needs to be imported before this script.`,
-        getActiveScript(),
+        `GSAP ${plugin} plugin script needs to be imported before this script.`,
         "\n",
-        `Get ${plugin} plugin from here: https://gsap.com/docs/v3/Installation/ `
+        `Get the ${plugin} plugin from here: https://gsap.com/docs/v3/Installation/ `
       );
     }
     // Use index-based assignment to maintain tuple structure

@@ -25,21 +25,28 @@ import 'gsap/TextPlugin';
 declare const afterWebflowReady: (callback: (value?: unknown) => unknown) => void;
 
 /**
- * Retrieves the script element that loaded the current module.
+ * Gets the currently executing script element from the DOM.
  *
- * This function uses import.meta.url to identify the current module's URL,
- * then finds the corresponding script element in the DOM that has this URL
- * as its src attribute.
+ * This function finds the script element that corresponds to the current module
+ * by matching the script's src attribute with the provided import.meta.url.
  *
- * @returns The HTMLScriptElement for the current module, or null if not found
+ * @param importMetaUrl - The URL of the current module, typically from import.meta.url
+ * @returns The HTMLScriptElement that is currently executing this code, or null if not found
  *
  * @example
- * // Get the script element that loaded this module
- * const scriptElement = getActiveScript();
- * console.log(scriptElement);
- * // Output: <script src="path/to/current/module.js"></script>
+ * ```typescript
+ * // Get the current script element
+ * const currentScript = getActiveScript(import.meta.url);
+ * if (currentScript) {
+ *   console.log('Script loaded from:', currentScript.src);
+ * }
+ * ```
+ *
+ * @remarks
+ * This is useful when you need to access attributes or properties of the script tag
+ * that loaded your module, such as data attributes or the script's position in the DOM.
  */
-declare const getActiveScript: () => HTMLScriptElement | null;
+declare const getActiveScript: (importMetaUrl: string) => HTMLScriptElement | null;
 
 type GSAPReturnTuple<T extends GSAPPluginNames[]> = [
     GSAPType | null,
