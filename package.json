@@ -1,7 +1,7 @@
 {
   "name": "@taj-wf/utils",
   "description": "Some useful TypeScript utilities that can be used when working with Webflow.",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "license": "MIT",
   "keywords": [],
   "type": "module",
