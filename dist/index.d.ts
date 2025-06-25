@@ -209,13 +209,13 @@ type WFCustomPageLoadFeature = {
     destroy: () => Promise<void>;
     reInit: () => Promise<void>;
 });
+type WFCustomPageLoadFeaturesRecord = Record<string, WFCustomPageLoadFeature>;
 declare global {
     interface Window {
-        wfCustomPageLoadFeatures: Array<WFCustomPageLoadFeature>;
+        wfCustomPageLoadFeatures: WFCustomPageLoadFeaturesRecord;
     }
 }
 declare const addWFCustomPageLoadFeature: (feature: WFCustomPageLoadFeature) => void;
-declare const getWFCustomPageLoadFeatures: () => WFCustomPageLoadFeature[];
-declare const getWFCustomPageLoadFeatureByName: (name: string) => WFCustomPageLoadFeature | null;
+declare const getWFCustomPageLoadFeatures: () => WFCustomPageLoadFeaturesRecord;
 
-export { GSAPPluginNames, GSAPPluginTypeMap, GSAPType, type WFCustomPageLoadFeature, addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatureByName, getWFCustomPageLoadFeatures, setStyle };
+export { GSAPPluginNames, GSAPPluginTypeMap, GSAPType, type WFCustomPageLoadFeature, addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatures, setStyle };

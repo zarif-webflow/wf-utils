@@ -97,12 +97,11 @@ var setStyle = (element, styles) => {
 };
 
 // src/modules/wf-custom-page-load-features.ts
-window.wfCustomPageLoadFeatures ||= [];
+window.wfCustomPageLoadFeatures ||= {};
 var addWFCustomPageLoadFeature = (feature) => {
-  window.wfCustomPageLoadFeatures ||= [];
-  window.wfCustomPageLoadFeatures.push(feature);
+  window.wfCustomPageLoadFeatures ||= {};
+  window.wfCustomPageLoadFeatures[feature.name] = feature;
 };
 var getWFCustomPageLoadFeatures = () => window.wfCustomPageLoadFeatures;
-var getWFCustomPageLoadFeatureByName = (name) => window.wfCustomPageLoadFeatures.find((feature) => feature.name === name) || null;
 
-export { addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatureByName, getWFCustomPageLoadFeatures, setStyle };
+export { addWFCustomPageLoadFeature, afterWebflowReady, getActiveScript, getGsap, getHtmlElement, getMultipleHtmlElements, getWFCustomPageLoadFeatures, setStyle };
